@@ -1,4 +1,5 @@
 package com.HospitalDecos.SistemaDePainelDeLeitos.model;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,20 +9,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Leito {
+public class Setor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-
-    private String numero;
-    private String setor;
-    private String tipoAtendimento;
-
+    private String nome;
 
 }

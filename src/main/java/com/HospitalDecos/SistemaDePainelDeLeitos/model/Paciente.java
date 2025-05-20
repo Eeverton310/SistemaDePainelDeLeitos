@@ -14,15 +14,11 @@ import java.time.LocalDate;
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pacienteId;
+    private Long Id;
 
     private String nome;
     private LocalDate dataNascimento;
     private char sexo;
-    private LocalDate dataAdmissao;
-    private Integer tempoInternacao;
-    private Integer tempoPermanencia;
-    private String previsaoAlta;
 
     @ManyToOne
     @JoinColumn(name = "leito_id")

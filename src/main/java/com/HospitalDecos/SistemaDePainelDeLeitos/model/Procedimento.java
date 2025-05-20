@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Procedimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long procedimentoId;
+    private Long Id;
     private String nome;
 
 }
