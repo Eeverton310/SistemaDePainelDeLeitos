@@ -1,0 +1,155 @@
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #4d0000;
+  margin: 0;
+  padding: 20px;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+header img {
+  width: 120px;
+  height: auto;
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  margin: 0;
+  color: #7a0000;
+  text-shadow: 1px 1px 3px #e0b2b2;
+}
+
+section.centro-cirurgico {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(122,0,0,0.15);
+  margin-bottom: 50px;
+}
+section.centro-cirurgico h2 {
+  color: #7a0000;
+  font-weight: 900;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #7a0000;
+  padding-bottom: 6px;
+}
+section.centro-cirurgico p {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 6px 0;
+}
+
+table.centro-cirurgico-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+table.centro-cirurgico-table th,
+table.centro-cirurgico-table td {
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+table.centro-cirurgico-table thead th {
+  background-color: #7a0000;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+table.centro-cirurgico-table tbody tr {
+  background-color: #fdf0f0;
+  box-shadow: 0 2px 6px rgba(122,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+table.centro-cirurgico-table tbody tr:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(122,0,0,0.2);
+}
+
+.status.alta {
+  color: #059500;
+  font-weight: 700; 
+}
+
+.status.srpa {
+  color: #ddc000e9;
+  font-weight: 700;
+}
+
+.status.cirurgia {
+  color: #991b1b;
+  font-weight: 700;
+}
+
+section.kanban-painel {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(122,0,0,0.15);
+}
+section.kanban-painel h3 {
+  color: #7a0000;
+  font-weight: 900;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #7a0000;
+  padding-bottom: 8px;
+}
+
+table.kanban-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+table.kanban-table th,
+table.kanban-table td {
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+table.kanban-table thead th {
+  background-color: #7a0000;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+table.kanban-table tbody tr {
+  background-color: #fdf0f0;
+  box-shadow: 0 2px 6px rgba(122,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+table.kanban-table tbody tr:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(122,0,0,0.2);
+}
+
+.verde {
+  background-color: #c6f6d5; 
+}
+.amarelo {
+  background-color: #fefcbf; 
+}
+.vermelho {
+  background-color: #feb2b2; 
+}
+
+footer {
+  margin-top: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #7a0000;
+  text-align: center;
+  user-select: none;
+}
