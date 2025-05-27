@@ -92,49 +92,6 @@ table.centro-cirurgico-table tbody tr:hover {
   font-weight: 700;
 }
 
-section.kanban-painel {
-  background: #fff;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(122,0,0,0.15);
-}
-section.kanban-painel h3 {
-  color: #7a0000;
-  font-weight: 900;
-  font-size: 1.6rem;
-  margin-bottom: 25px;
-  border-bottom: 3px solid #7a0000;
-  padding-bottom: 8px;
-}
-
-table.kanban-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 12px;
-}
-table.kanban-table th,
-table.kanban-table td {
-  padding: 14px 18px;
-  text-align: center;
-  font-size: 0.95rem;
-  border-radius: 8px;
-}
-table.kanban-table thead th {
-  background-color: #7a0000;
-  color: #fff;
-  font-weight: 700;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-table.kanban-table tbody tr {
-  background-color: #fdf0f0;
-  box-shadow: 0 2px 6px rgba(122,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-table.kanban-table tbody tr:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(122,0,0,0.2);
-}
-
 .verde {
   background-color: #c6f6d5; 
 }
