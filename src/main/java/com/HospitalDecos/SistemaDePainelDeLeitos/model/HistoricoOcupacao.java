@@ -17,7 +17,7 @@ import lombok.Setter;
 public class HistoricoOcupacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "paciente_id")
