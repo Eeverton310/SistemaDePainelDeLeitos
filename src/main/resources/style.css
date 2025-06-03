@@ -9,14 +9,17 @@ body {
   margin: 0;
   padding: 20px;
 }
+
 header {
-  display: flex;
-  align-items: center;
+  justify-content: center; 
   gap: 12px;
   margin-bottom: 30px;
+  align-items: center;
+  display: flex;
 }
+
 header img {
-  width: 120px;
+  width: 130px;
   height: auto;
 }
 header h1 {
@@ -82,12 +85,12 @@ table.centro-cirurgico-table tbody tr:hover {
   font-weight: 700; 
 }
 
-.status.srpa {
+.status.media {
   color: #ddc000e9;
   font-weight: 700;
 }
 
-.status.cirurgia {
+.status.baixa {
   color: #991b1b;
   font-weight: 700;
 }
