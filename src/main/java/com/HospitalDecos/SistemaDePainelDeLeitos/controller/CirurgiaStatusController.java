@@ -10,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/cirurgias")
 @RequiredArgsConstructor
+@CrossOrigin
 public class CirurgiaStatusController {
 
     private final CirurgiaStatusService cirurgiaStatusService;

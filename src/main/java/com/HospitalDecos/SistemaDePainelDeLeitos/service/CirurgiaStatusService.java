@@ -11,11 +11,10 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class CirurgiaStatusService {
-
-    private final HistoricoOcupacaoRepository historicoOcupacaoRepository;
+    private final HistoricoOcupacaoRepository HistoricoOcupacaoRepository;
 
     public List<CirurgiaStatusDTO> listarStatusCirurgias() {
-        List<CirurgiaStatusDTO> lista = historicoOcupacaoRepository.buscarStatusCirurgias();
+        List<CirurgiaStatusDTO> lista = HistoricoOcupacaoRepository.buscarStatusCirurgias();
 
         return lista.stream()
                 .map(dto -> {
