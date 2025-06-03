@@ -10,213 +10,113 @@
 
 <body>
 
-    <header>
-        <img src="https://decosdh.com.br/paciente/out/img/logo.png" alt="Logo Hospital Décos" class="logo" />
+<header>
+    <img src="https://decosdh.com.br/paciente/out/img/logo.png" alt="Logo Hospital Décos" class="logo" />
+</header>
 
-    </header>
+<section class="centro-cirurgico">
+    <h2>CENTRO CIRÚRGICO</h2>
+    <p><strong>SO</strong> - Sala Operatória</p>
+    <p><strong>SRPA</strong> - Sala de Recuperação Pós-Anestésica</p>
 
-    <section class="centro-cirurgico">
-        <h2>CENTRO CIRÚRGICO</h2>
-        <p><strong>SO</strong> - Sala Operatória</p>
-        <p><strong>SRPA</strong> - Sala de Recuperação Pós-Anestésica</p>
+    <table class="centro-cirurgico-table">
+        <thead>
+        <tr>
+            <th>Leito</th>
+            <th>Paciente</th>
+            <th>Sexo</th>
+            <th>Idade</th>
+            <th>Procedimento</th>
+            <th>Médico Responsável</th>
+            <th>Admissão</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+        <!-- Linhas serão preenchidas via JavaScript -->
+        </tbody>
+    </table>
+</section>
 
-        <table class="centro-cirurgico-table">
-            <thead>
-                <tr>
-                    <th>Leito</th>
-                    <th>Paciente</th>
-                    <th>Sexo</th>
-                    <th>Idade</th>
-                    <th>Procedimento</th>
-                    <th>Médico Responsável</th>
-                    <th>Admissão</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>A.B.C</td>
-                    <td>F</td>
-                    <td>18 anos</td>
-                    <td>Exerese de Lesão</td>
-                    <td>Dr. Albano Franco</td>
-                    <td>05/02/2025</td>
-                    <td><span class="status alta">Alta para internamento</span></td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td>D.E.F.</td>
-                    <td>M</td>
-                    <td>23 anos</td>
-                    <td>Mamoplastia</td>
-                    <td>Dra. Moana Freire</td>
-                    <td>18/02/2025</td>
-                    <td><span class="status baixa">Em cirurgia</span></td>
+<footer>
+    &copy; 2025 Hospital Décos - Todos os direitos reservados
+    <br />
+    <span id="data-atualizacao">Atualizado em: --/--/---- --:--:--</span>
+</footer>
 
-                </tr>
-                <tr>
-                    <td>03</td>
-                    <td>G.H.I.</td>
-                    <td>F</td>
-                    <td>30 anos</td>
-                    <td>Artrosplastia</td>
-                    <td>Dr. Chico Anísio</td>
-                    <td>03/02/2025</td>
-                    <td><span class="status media">Entrada SRPA</span></td>
-                </tr>
-                <tr>
-                    <td>04</td>
-                    <td>A.B.C</td>
-                    <td>F</td>
-                    <td>28 anos</td>
-                    <td>Varizes - Bilateral</td>
-                    <td>Dra. Carol Britto</td>
-                    <td>16/02/2025</td>
-                    <td><span class="status media"> Entrada SRPA</span></td>
-                </tr>
-                <tr>
-                    <td>05</td>
-                    <td>D.E.F</td>
-                    <td>M</td>
-                    <td>32 anos</td>
-                    <td>Exerese de Lesão</td>
-                    <td>Dra. Albano Franco</td>
-                    <td>19/02/2025</td>
-                    <td><span class="status alta">Alta para internamento</span></td>
-                </tr>
-                <tr>
-                    <td>06</td>
-                    <td>G.H.I</td>
-                    <td>F</td>
-                    <td>52 anos</td>
-                    <td>Mamoplastia</td>
-                    <td>Dr. Moana Freire</td>
-                    <td>11/02/2025</td>
-                    <td><span class="status baixa">Em cirurgia</span></td>
-                </tr>
-                <tr>
-                    <td>07</td>
-                    <td>A.B.C</td>
-                    <td>F</td>
-                    <td>18 anos</td>
-                    <td>Artrosplastia</td>
-                    <td>Dr. Chico Anísio</td>
-                    <td>05/02/2025</td>
-                    <td><span class="status media"> Entrada SRPA</span></td>
-                </tr>
-                <tr>
-                    <td>08</td>
-                    <td>D.E.F</td>
-                    <td>M</td>
-                    <td>23 anos</td>
-                    <td>Varizes - Bilateral</td>
-                    <td>Dra. Carol Britto</td>
-                    <td>18/02/2025</td>
-                    <td><span class="status media">Entrada SRPA</span></td>
+<script>
+    async function carregarHistorico() {
+        try {
+            const resposta = await fetch('http://localhost:8081/api/historico');
+            if (!resposta.ok) throw new Error('Erro ao buscar dados do histórico');
 
-                </tr>
-                <tr>
-                    <td>09</td>
-                    <td>G.H.I</td>
-                    <td>M</td>
-                    <td>45 anos</td>
-                    <td>Exerese de Lesão</td>
-                    <td>Dr. Albano Franco</td>
-                    <td>03/02/2025</td>
-                    <td><span class="status baixa">Em cirurgia</span></td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>A.B.C</td>
-                    <td>F</td>
-                    <td>28 anos</td>
-                    <td>Mamoplastia</td>
-                    <td>Dra. Moana Freire</td>
-                    <td>16/02/2025</td>
-                    <td><span class="status baixa">Em cirurgia</span></td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>D.E.F</td>
-                    <td>M</td>
-                    <td>32 anos</td>
-                    <td>Artrosplastia</td>
-                    <td>Dr. Chico Anísio</td>
-                    <td>19/02/2025</td>
-                    <td><span class="status media">Entrada SRPA</span></td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>G.H.I</td>
-                    <td>F</td>
-                    <td>52 anos</td>
-                    <td>Varizes - Bilateral</td>
-                    <td>Dra. Carol Britto</td>
-                    <td>12/02/2025</td>
-                    <td><span class="status media">Entrada SRPA</span></td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td>A.B.C</td>
-                    <td>F</td>
-                    <td>18 anos</td>
-                    <td>Exerese de Lesão</td>
-                    <td>Dr. Albano Franco</td>
-                    <td>05/02/2025</td>
-                    <td><span class="status alta">Alta para internamento</span></td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>D.E.F</td>
-                    <td>M</td>
-                    <td>23 anos</td>
-                    <td>Mamoplastia</td>
-                    <td>Dra. Moana Freire</td>
-                    <td>18/02/2025</td>
-                    <td><span class="status baixa">Em cirurgia</span></td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td>G.H.I</td>
-                    <td>M</td>
-                    <td>45 anos</td>
-                    <td>Artrosplastia</td>
-                    <td>Dr. Chico Anísio</td>
-                    <td>03/02/2025</td>
-                    <td><span class="status media">Entrada SRPA</span></td>
-                </tr>
-                <tr>
-                    <td>16</td>
-                    <td>A.B.C</td>
-                    <td>F</td>
-                    <td>28 anos</td>
-                    <td>Varizes - Bilateral</td>
-                    <td>Dra. Carol Britto</td>
-                    <td>16/02/2025</td>
-                    <td><span class="status media">Entrada SRPA</span></td>
-                </tr>
-                <tr>
-                    <td>17</td>
-                    <td>D.E.F</td>
-                    <td>M</td>
-                    <td>32 anos</td>
-                    <td>Exerese de Lesão</td>
-                    <td>Dr. Albano Franco</td>
-                    <td>19/02/2027</td>
-                    <td><span class="status alta">Alta para internamento</span></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+            const dados = await resposta.json();
 
-    <footer>
-        &copy; 2025 Hospital Décos - Todos os direitos reservados
-        <br />
-        <span id="data-atualizacao">Atualizado em: --/--/---- --:--:--</span>
-    </footer>
+            const tbody = document.getElementById('tabela-corpo');
+            tbody.innerHTML = '';  // Limpa linhas antigas
 
-    <script src="script.js"></script>
+            dados.forEach(item => {
+                const tr = document.createElement('tr');
+
+                // Nome abreviado só com iniciais (ex: Carlos Souza -> C.S)
+                const nomeAbreviado = item.nome
+                    ? item.nome.split(' ').map(p => p[0]).join('.').toUpperCase()
+                    : '';
+
+                // Formatar dataEntrada dd/MM/yyyy
+                const dataEntradaFormatada = item.dataEntrada
+                    ? new Date(item.dataEntrada).toLocaleDateString('pt-BR')
+                    : '';
+
+                // Definir classe do status para colorir conforme CSS
+                let classeStatus = '';
+                if (item.statusCirurgia.toLowerCase().includes('alta')) classeStatus = 'alta';
+                else if (item.statusCirurgia.toLowerCase().includes('cirurgia')) classeStatus = 'baixa';
+                else classeStatus = 'media';
+
+                tr.innerHTML = `
+                        <td>${item.numero || ''}</td>
+                        <td>${nomeAbreviado}</td>
+                        <td>${item.sexo || ''}</td>
+                        <td>${item.idade ? item.idade + ' anos' : ''}</td>
+                        <td>${item.nomeProcedimento || ''}</td>
+                        <td>${item.nomeCirurgiao || ''}</td>
+                        <td>${dataEntradaFormatada}</td>
+                        <td><span class="status ${classeStatus}">${item.statusCirurgia || ''}</span></td>
+                    `;
+
+                tbody.appendChild(tr);
+            });
+
+        } catch (error) {
+            console.error('Erro ao carregar histórico:', error);
+        }
+    }
+
+    function atualizarDataHora() {
+        const agora = new Date();
+        const dataFormatada = agora.toLocaleString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+
+        const elementoData = document.getElementById('data-atualizacao');
+        if (elementoData) {
+            elementoData.textContent = `Atualizado em: ${dataFormatada}`;
+        }
+    }
+
+    // Atualiza a tabela e a data/hora quando a página carregar
+    window.onload = () => {
+        carregarHistorico();
+        atualizarDataHora();
+        setInterval(atualizarDataHora, 60000); // atualiza o relógio a cada minuto
+    };
+</script>
 </body>
 
 </html>
