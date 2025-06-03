@@ -1,21 +1,21 @@
 package com.HospitalDecos.SistemaDePainelDeLeitos.controller;
 
 import com.HospitalDecos.SistemaDePainelDeLeitos.dto.CirurgiaStatusDTO;
-import com.HospitalDecos.SistemaDePainelDeLeitos.repository.HistoricoOcupacaoRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.HospitalDecos.SistemaDePainelDeLeitos.service.CirurgiaStatusService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/cirurgias")
+@RequiredArgsConstructor
 public class CirurgiaStatusController {
 
-    @Autowired
-    private HistoricoOcupacaoRepository historicoOcupacaoRepository;
+    private final CirurgiaStatusService cirurgiaStatusService;
 
-    @GetMapping("/api/cirurgias/status")
+    @GetMapping("/status")
     public List<CirurgiaStatusDTO> listarStatusCirurgias() {
-        return historicoOcupacaoRepository.buscarStatusCirurgias();
+        return cirurgiaStatusService.listarStatusCirurgias();
     }
 }
