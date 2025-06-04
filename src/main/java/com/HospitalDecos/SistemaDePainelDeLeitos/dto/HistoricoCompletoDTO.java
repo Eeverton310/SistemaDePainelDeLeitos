@@ -13,21 +13,22 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class HistoricoCompletoDTO {
 
-    private String numero;           // número do leito
-    private String nome;             // nome do paciente
-    private char sexo;               // sexo do paciente
+    private String numero;
+    private String nome;
+    private char sexo;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate dataNascimento;  // data de nascimento do paciente
+    private LocalDate dataNascimento;
 
-    private String nomeProcedimento;    // nome do procedimento
-    private String nomeCirurgiao;       // nome do cirurgião
-    private LocalDateTime dataEntrada;  // data de entrada
-    private String statusCirurgia;      // status da cirurgia
+    private String nomeProcedimento;
+    private String nomeCirurgiao;
+    private LocalDateTime dataEntrada;
+    private String statusCirurgia;
 
-    private int idade;                  // idade calculada no serviço
+    private int idade;
 
-    // Construtor usado na query JPA (sem o campo idade)
+    private String nomeAbreviado;
+
     public HistoricoCompletoDTO(String numero, String nome, char sexo, LocalDate dataNascimento,
                                 String nomeProcedimento, String nomeCirurgiao,
                                 LocalDateTime dataEntrada, String statusCirurgia) {

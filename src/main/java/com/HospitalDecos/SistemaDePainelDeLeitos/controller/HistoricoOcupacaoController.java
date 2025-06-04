@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin
 public class HistoricoOcupacaoController {
+
     private final HistoricoOcupacaoService historicoOcupacaoService;
 
     @GetMapping

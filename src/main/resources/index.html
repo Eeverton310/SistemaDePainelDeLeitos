@@ -33,7 +33,6 @@
         </tr>
         </thead>
         <tbody id="tabela-corpo">
-        <!-- Linhas serão preenchidas via JavaScript -->
         </tbody>
     </table>
 </section>
@@ -53,22 +52,19 @@
             const dados = await resposta.json();
 
             const tbody = document.getElementById('tabela-corpo');
-            tbody.innerHTML = '';  // Limpa linhas antigas
+            tbody.innerHTML = '';
 
             dados.forEach(item => {
                 const tr = document.createElement('tr');
 
-                // Nome abreviado só com iniciais (ex: Carlos Souza -> C.S)
                 const nomeAbreviado = item.nome
                     ? item.nome.split(' ').map(p => p[0]).join('.').toUpperCase()
                     : '';
 
-                // Formatar dataEntrada dd/MM/yyyy
                 const dataEntradaFormatada = item.dataEntrada
                     ? new Date(item.dataEntrada).toLocaleDateString('pt-BR')
                     : '';
 
-                // Definir classe do status para colorir conforme CSS
                 let classeStatus = '';
                 if (item.statusCirurgia.toLowerCase().includes('alta')) classeStatus = 'alta';
                 else if (item.statusCirurgia.toLowerCase().includes('cirurgia')) classeStatus = 'baixa';
@@ -110,11 +106,10 @@
         }
     }
 
-    // Atualiza a tabela e a data/hora quando a página carregar
     window.onload = () => {
         carregarHistorico();
         atualizarDataHora();
-        setInterval(atualizarDataHora, 60000); // atualiza o relógio a cada minuto
+        setInterval(atualizarDataHora, 60000);
     };
 </script>
 </body>
