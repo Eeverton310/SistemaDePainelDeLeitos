@@ -6,7 +6,7 @@ async function carregarHistorico() {
     const dados = await resposta.json();
 
     const tbody = document.getElementById('tabela-corpo');
-    tbody.innerHTML = '';
+    tbody.innerHTML = ''; // Limpa a tabela antes de adicionar os novos dados
 
     dados.forEach(item => {
       const tr = document.createElement('tr');
@@ -23,15 +23,15 @@ async function carregarHistorico() {
       else classeStatus = 'media';
 
       tr.innerHTML = `
-                <td>${item.numero || ''}</td>
-                <td>${nomeAbreviado}</td>
-                <td>${item.sexo || ''}</td>
-                <td>${item.idade ? item.idade + ' anos' : ''}</td>
-                <td>${item.nomeProcedimento || ''}</td>
-                <td>${item.nomeCirurgiao || ''}</td>
-                <td>${dataEntradaFormatada}</td>
-                <td><span class="status ${classeStatus}">${item.statusCirurgia || ''}</span></td>
-            `;
+        <td>${item.numero || ''}</td>
+        <td>${nomeAbreviado}</td>
+        <td>${item.sexo || ''}</td>
+        <td>${item.idade ? item.idade + ' anos' : ''}</td>
+        <td>${item.nomeProcedimento || ''}</td>
+        <td>${item.nomeCirurgiao || ''}</td>
+        <td>${dataEntradaFormatada}</td>
+        <td><span class="status ${classeStatus}">${item.statusCirurgia || ''}</span></td>
+      `;
 
       tbody.appendChild(tr);
     });
@@ -58,8 +58,15 @@ function atualizarDataHora() {
   }
 }
 
+// Função chamada ao carregar a página
 window.onload = () => {
+  // Carregar os dados inicialmente
   carregarHistorico();
   atualizarDataHora();
-  setInterval(atualizarDataHora, 60000);
+
+  // Atualizar a tabela e o horário a cada 10 segundos
+  setInterval(() => {
+    carregarHistorico();
+    atualizarDataHora();
+  }, 10000); // Atualiza a tabela e a hora a cada 10 segundos
 };

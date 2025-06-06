@@ -109,7 +109,8 @@
     window.onload = () => {
         carregarHistorico();
         atualizarDataHora();
-        setInterval(atualizarDataHora, 60000);
+        setInterval(carregarHistorico, 10000);
+        setInterval(atualizarDataHora, 10000);
     };
 </script>
 </body>
