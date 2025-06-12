@@ -1,6 +1,6 @@
 package com.HospitalDecos.SistemaDePainelDeLeitos.service;
 
-import com.HospitalDecos.SistemaDePainelDeLeitos.dto.CirurgiaStatusDTO;
+import com.HospitalDecos.SistemaDePainelDeLeitos.dto.HistoricoCompletoDTO;
 import com.HospitalDecos.SistemaDePainelDeLeitos.repository.HistoricoOcupacaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,15 +11,18 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class CirurgiaStatusService {
-    private final HistoricoOcupacaoRepository HistoricoOcupacaoRepository;
 
-    public List<CirurgiaStatusDTO> listarStatusCirurgias() {
-        List<CirurgiaStatusDTO> lista = HistoricoOcupacaoRepository.buscarStatusCirurgias();
+    private final HistoricoOcupacaoRepository historicoOcupacaoRepository;
+
+    // Remover o uso de CirurgiaStatusDTO e substituir por HistoricoCompletoDTO
+    public List<HistoricoCompletoDTO> listarStatusCirurgias() {
+        // Chama a consulta que agora existe, que é 'buscarHistoricoCompleto'
+        List<HistoricoCompletoDTO> lista = historicoOcupacaoRepository.buscarHistoricoCompleto();
 
         return lista.stream()
                 .map(dto -> {
-                    String nomeAbrev = CirurgiaStatusDTO.abreviarNome(dto.getNomeAbreviado());
-                    dto.setNomeAbreviado(nomeAbrev);
+                    // Lógica de abreviar nome ou outras transformações necessárias
+                    dto.setNomeAbreviado(dto.getNome());  // Agora usando HistoricoCompletoDTO
                     return dto;
                 })
                 .collect(Collectors.toList());

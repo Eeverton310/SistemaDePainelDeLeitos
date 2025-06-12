@@ -6,32 +6,33 @@ async function carregarHistorico() {
     const dados = await resposta.json();
 
     const tbody = document.getElementById('tabela-corpo');
-    tbody.innerHTML = ''; // Limpa a tabela antes de adicionar os novos dados
+    tbody.innerHTML = '';
 
     dados.forEach(item => {
       const tr = document.createElement('tr');
 
-      const nomeAbreviado = item.nomeAbreviado || '';
-
-      const dataEntradaFormatada = item.dataEntrada
-          ? new Date(item.dataEntrada).toLocaleDateString('pt-BR')
+      const nomeAbreviado = item.nome
+          ? item.nome.split(' ').map(p => p[0]).join('.').toUpperCase()
           : '';
 
-      let classeStatus = '';
-      if (item.statusCirurgia.toLowerCase().includes('alta')) classeStatus = 'alta';
-      else if (item.statusCirurgia.toLowerCase().includes('cirurgia')) classeStatus = 'baixa';
-      else classeStatus = 'media';
+      const dataEntradaFormatada = item.dataEntrada
+          ? new Date(item.dataEntrada).toLocaleString('pt-BR')
+          : '';
+
+      const previsaoAltaFormatada = item.previsaoAlta
+          ? new Date(item.previsaoAlta).toLocaleString('pt-BR')
+          : '';
 
       tr.innerHTML = `
-        <td>${item.numero || ''}</td>
-        <td>${nomeAbreviado}</td>
-        <td>${item.sexo || ''}</td>
-        <td>${item.idade ? item.idade + ' anos' : ''}</td>
-        <td>${item.nomeProcedimento || ''}</td>
-        <td>${item.nomeCirurgiao || ''}</td>
-        <td>${dataEntradaFormatada}</td>
-        <td><span class="status ${classeStatus}">${item.statusCirurgia || ''}</span></td>
-      `;
+                    <td>${item.numero || ''}</td>
+                    <td>${nomeAbreviado}</td>
+                    <td>${item.sexo || ''}</td>
+                    <td>${item.idade ? item.idade : ''}</td>
+                    <td>${item.nomeProcedimento || ''}</td>
+                    <td>${item.nomeCirurgiao || ''}</td>
+                    <td>${dataEntradaFormatada}</td>
+                    <td>${previsaoAltaFormatada}</td> <!-- Mantivemos a Previsão de Alta -->
+                `;
 
       tbody.appendChild(tr);
     });
@@ -58,15 +59,9 @@ function atualizarDataHora() {
   }
 }
 
-// Função chamada ao carregar a página
 window.onload = () => {
-  // Carregar os dados inicialmente
   carregarHistorico();
   atualizarDataHora();
-
-  // Atualizar a tabela e o horário a cada 10 segundos
-  setInterval(() => {
-    carregarHistorico();
-    atualizarDataHora();
-  }, 10000); // Atualiza a tabela e a hora a cada 10 segundos
+  setInterval(carregarHistorico, 10000);
+  setInterval(atualizarDataHora, 10000);
 };

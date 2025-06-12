@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -11,7 +10,7 @@ body {
 }
 
 header {
-  justify-content: center; 
+  justify-content: center;
   gap: 12px;
   margin-bottom: 30px;
   align-items: center;
@@ -31,14 +30,14 @@ header h1 {
   text-shadow: 1px 1px 3px #e0b2b2;
 }
 
-section.centro-cirurgico {
+section.internamento { /* Alterado de centro-cirurgico para internamento */
   background: #fff;
   padding: 25px 30px;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(122,0,0,0.15);
   margin-bottom: 50px;
 }
-section.centro-cirurgico h2 {
+section.internamento h2 { /* Alterado de centro-cirurgico h2 para internamento h2 */
   color: #7a0000;
   font-weight: 900;
   font-size: 1.8rem;
@@ -46,43 +45,43 @@ section.centro-cirurgico h2 {
   border-bottom: 3px solid #7a0000;
   padding-bottom: 6px;
 }
-section.centro-cirurgico p {
+section.internamento p {
   font-weight: 600;
   font-size: 1rem;
   margin: 6px 0;
 }
 
-table.centro-cirurgico-table {
+table.internamento-table { /* Alterado de centro-cirurgico-table para internamento-table */
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 12px;
 }
-table.centro-cirurgico-table th,
-table.centro-cirurgico-table td {
+table.internamento-table th,
+table.internamento-table td {
   padding: 14px 18px;
   text-align: center;
   font-size: 0.95rem;
   border-radius: 8px;
 }
-table.centro-cirurgico-table thead th {
+table.internamento-table thead th {
   background-color: #7a0000;
   color: #fff;
   font-weight: 700;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
-table.centro-cirurgico-table tbody tr {
+table.internamento-table tbody tr {
   background-color: #fdf0f0;
   box-shadow: 0 2px 6px rgba(122,0,0,0.1);
   transition: transform 0.3s ease;
 }
-table.centro-cirurgico-table tbody tr:hover {
+table.internamento-table tbody tr:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 18px rgba(122,0,0,0.2);
 }
 
 .status.alta {
   color: #059500;
-  font-weight: 700; 
+  font-weight: 700;
 }
 
 .status.media {
@@ -96,13 +95,13 @@ table.centro-cirurgico-table tbody tr:hover {
 }
 
 .verde {
-  background-color: #c6f6d5; 
+  background-color: #c6f6d5;
 }
 .amarelo {
-  background-color: #fefcbf; 
+  background-color: #fefcbf;
 }
 .vermelho {
-  background-color: #feb2b2; 
+  background-color: #feb2b2;
 }
 
 footer {

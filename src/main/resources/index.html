@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hospital Decós - Centro Cirúrgico</title>
+    <title>Hospital Decós - Internamento</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,12 +14,12 @@
     <img src="https://decosdh.com.br/paciente/out/img/logo.png" alt="Logo Hospital Décos" class="logo" />
 </header>
 
-<section class="centro-cirurgico">
-    <h2>CENTRO CIRÚRGICO</h2>
+<section class="internamento">
+    <h2>INTERNAMENTO</h2>
     <p><strong>SO</strong> - Sala Operatória</p>
     <p><strong>SRPA</strong> - Sala de Recuperação Pós-Anestésica</p>
 
-    <table class="centro-cirurgico-table">
+    <table class="internamento-table">
         <thead>
         <tr>
             <th>Leito</th>
@@ -28,8 +28,8 @@
             <th>Idade</th>
             <th>Procedimento</th>
             <th>Médico Responsável</th>
-            <th>Admissão</th>
-            <th>Status</th>
+            <th>Data e Hora de Admissão</th>
+            <th>Previsão de Alta</th> <!-- Mantivemos a coluna "Previsão de Alta" -->
         </tr>
         </thead>
         <tbody id="tabela-corpo">
@@ -43,76 +43,7 @@
     <span id="data-atualizacao">Atualizado em: --/--/---- --:--:--</span>
 </footer>
 
-<script>
-    async function carregarHistorico() {
-        try {
-            const resposta = await fetch('http://localhost:8081/api/historico');
-            if (!resposta.ok) throw new Error('Erro ao buscar dados do histórico');
-
-            const dados = await resposta.json();
-
-            const tbody = document.getElementById('tabela-corpo');
-            tbody.innerHTML = '';
-
-            dados.forEach(item => {
-                const tr = document.createElement('tr');
-
-                const nomeAbreviado = item.nome
-                    ? item.nome.split(' ').map(p => p[0]).join('.').toUpperCase()
-                    : '';
-
-                const dataEntradaFormatada = item.dataEntrada
-                    ? new Date(item.dataEntrada).toLocaleDateString('pt-BR')
-                    : '';
-
-                let classeStatus = '';
-                if (item.statusCirurgia.toLowerCase().includes('alta')) classeStatus = 'alta';
-                else if (item.statusCirurgia.toLowerCase().includes('cirurgia')) classeStatus = 'baixa';
-                else classeStatus = 'media';
-
-                tr.innerHTML = `
-                        <td>${item.numero || ''}</td>
-                        <td>${nomeAbreviado}</td>
-                        <td>${item.sexo || ''}</td>
-                        <td>${item.idade ? item.idade + ' anos' : ''}</td>
-                        <td>${item.nomeProcedimento || ''}</td>
-                        <td>${item.nomeCirurgiao || ''}</td>
-                        <td>${dataEntradaFormatada}</td>
-                        <td><span class="status ${classeStatus}">${item.statusCirurgia || ''}</span></td>
-                    `;
-
-                tbody.appendChild(tr);
-            });
-
-        } catch (error) {
-            console.error('Erro ao carregar histórico:', error);
-        }
-    }
-
-    function atualizarDataHora() {
-        const agora = new Date();
-        const dataFormatada = agora.toLocaleString('pt-BR', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        });
-
-        const elementoData = document.getElementById('data-atualizacao');
-        if (elementoData) {
-            elementoData.textContent = `Atualizado em: ${dataFormatada}`;
-        }
-    }
-
-    window.onload = () => {
-        carregarHistorico();
-        atualizarDataHora();
-        setInterval(carregarHistorico, 10000);
-        setInterval(atualizarDataHora, 10000);
-    };
-</script>
+<script src="script.js"></script> <!-- Incluindo o arquivo JavaScript -->
 </body>
 
 </html>
