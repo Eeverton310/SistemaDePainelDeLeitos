@@ -1,6 +1,6 @@
 async function carregarHistorico() {
   try {
-    const resposta = await fetch('http://localhost:8081/api/historico');
+    const resposta = await fetch("/historico");
     if (!resposta.ok) throw new Error('Erro ao buscar dados do histórico');
 
     const dados = await resposta.json();
